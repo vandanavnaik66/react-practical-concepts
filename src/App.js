@@ -2,7 +2,8 @@
 // import ModifyArray from "./ModifyArray";
 // import ObjectModification from "./ObjectModification";
 // import CounterOne from "./CounterOne";
-import PreviousStateUseState from "./PreviousStateUseState"
+// import PreviousStateUseState from "./PreviousStateUseState"
+import ModifyArrayOfAnObject from "./ModifyArrayOfAnObject"
 
 
 
@@ -14,7 +15,8 @@ function App() {
 {/* <ModifyArray/> */}
 {/* <ObjectModification/> */}
 {/* <CounterOne/> */}
-<PreviousStateUseState/>
+{/* <PreviousStateUseState/>? */}
+<ModifyArrayOfAnObject/>
   </>
   );
 }
