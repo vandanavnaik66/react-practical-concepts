@@ -1,6 +1,9 @@
 // import VariableModification from "./VariableModification";
 // import ModifyArray from "./ModifyArray";
-import ObjectModification from "./ObjectModification";
+// import ObjectModification from "./ObjectModification";
+// import CounterOne from "./CounterOne";
+import PreviousStateUseState from "./PreviousStateUseState"
+
 
 
 
@@ -9,8 +12,9 @@ function App() {
   <>
 {/* <VariableModification/> */}
 {/* <ModifyArray/> */}
-<ObjectModification/>
-
+{/* <ObjectModification/> */}
+{/* <CounterOne/> */}
+<PreviousStateUseState/>
   </>
   );
 }
