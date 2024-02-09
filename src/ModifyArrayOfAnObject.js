@@ -1,68 +1,64 @@
 import { useState } from "react";
+import "./style.components/ModifyArrayOfAnObject.css";
 
 function ModifyArrayOfAnObject() {
-  const [arr, setArr] = useState([]);
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
-  const [email, setEmail] = useState("");
+  const [input, setInput] = useState({ fName: "", mName: "", lName: "" });
+  const [arrObj, setArrObj] = useState([]);
 
-  function addFun() {
-    let newObj = {
-      f_name: fname,
-      l_name: lname,
-      e_mail: email,
-    };
-    setArr((preState) => [...preState, newObj]);
-    setFname("");
-    setLname("");
-    setEmail("");
-  }
-  function removeFun(i) {
-    setArr((pre) => {
-        return pre.filter((_, index) => {
-        return index !== i;
-      });
-    });
-  }
+  const handleInput = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const addToArray = () => {
+    setArrObj([...arrObj, { ...input }]);
+    console.log(arrObj);
+    setInput({ ...input, fName: "", mName: "", lName: "" });
+  };
 
   return (
     <>
-      <ul>
-        {arr.map((item, index) => (
-          <li key={index}>
-            {item.f_name} {item.l_name} {item.e_mail}
-            <button onClick={() => removeFun(index)}>remove</button>
-          </li>
-        ))}
-      </ul>
+      <div className="container">
+        <div className="inner-container">
+          <div className="display">
+            {arrObj.map((obj) => (
+              <>
+              <div>
+                <span style={{ marginRight: "5px" }}>{obj.fName}</span>
+                <span style={{ marginRight: "5px" }}>{obj.mName}</span>
+                <span>{obj.lName}</span>
+                </div>
+              </>
+            ))}
+          </div>
+          <input
+            name="fName"
+            value={input.fName}
+            onChange={handleInput}
+            placeholder="enter first name"
+          />
+          <br />
+          <br />
 
-      <input
-        type="text"
-        value={fname}
-        onChange={(e) => setFname(e.target.value)}
-        placeholder="first name"
-      />
-      <br />
-      <br />
+          <input
+            name="mName"
+            value={input.mName}
+            onChange={handleInput}
+            placeholder="enter middle name"
+          />
+          <br />
+          <br />
 
-      <input
-        type="text"
-        value={lname}
-        onChange={(e) => setLname(e.target.value)}
-        placeholder="last name"
-      />
-      <br />
-      <br />
-
-      <input
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Enter email"
-      />
-      <br />
-      <br />
-      <button onClick={addFun}>Add</button>
+          <input
+            name="lName"
+            value={input.lName}
+            onChange={handleInput}
+            placeholder="enter last name"
+          />
+          <br />
+          <br />
+          <button onClick={addToArray}>Submit</button>
+        </div>
+      </div>
     </>
   );
 }

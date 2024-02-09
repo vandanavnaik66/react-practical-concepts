@@ -5,7 +5,9 @@ function ObjectModification() {
   const [input, setInput] = useState({ name: "", mName: "", lname: "" });
 
   function handleChange(e) {
-    setInput({ ...input, [e.target.name]: e.target.value });
+    setInput((preState)=>(
+({ ...input, [e.target.name]: e.target.value })
+    ))
   }
   function handleClick() {
     setObj({ ...input });
@@ -13,8 +15,9 @@ function ObjectModification() {
   }
   return (
     <>
+
+
       <h4>
-        {" "}
         {obj.name} {obj.mName} {obj.lname}
       </h4>
       <input
